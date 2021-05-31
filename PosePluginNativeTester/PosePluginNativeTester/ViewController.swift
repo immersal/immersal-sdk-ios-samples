@@ -42,8 +42,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func didTapLocalize(_ sender: UIButton) {
         if let frame = sceneView.session.currentFrame {
-            if let locInfo = localizeImage(frame: frame) {
-                stats.localizationAttemptCount += 1
+            localizeImage(frame: frame) { (locInfo) in
+                self.stats.localizationAttemptCount += 1
                 
                 if locInfo.mapHandle >= 0 {
                     let t = SCNVector3Make(locInfo.position.x, locInfo.position.y, locInfo.position.z)
@@ -55,14 +55,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                                        m31: -r.m31, m32: -r.m32, m33:  r.m33, m34: 0.0,
                                        m41:    t.x, m42:    t.y, m43:   -t.z, m44: 1.0)
                             
-                    if let pc = pointCloudNode {
+                    if let pc = self.pointCloudNode {
                         pc.transform = SCNMatrix4Mult(SCNMatrix4Invert(m), SCNMatrix4(frame.camera.transform))
                     }
                     
-                    stats.localizationSuccessCount += 1
+                    self.stats.localizationSuccessCount += 1
                 }
                 
-                locLabel.text = "Successful localizations: \(stats.localizationSuccessCount)/\(stats.localizationAttemptCount)"
+                DispatchQueue.main.async {
+                    self.locLabel.text = "Successful localizations: \(self.stats.localizationSuccessCount)/\(self.stats.localizationAttemptCount)"
+                }
             }
         }
     }
@@ -130,13 +132,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    func localizeImage(frame: ARFrame) -> LocalizationInfo? {
+    func localizeImage(frame: ARFrame, completion:@escaping (LocalizationInfo)->()) {
         let posPtr = UnsafeMutablePointer<Float>.allocate(capacity: 3)
         let pos = UnsafeMutableBufferPointer(start: posPtr, count: 3)
         let rotPtr = UnsafeMutablePointer<Float>.allocate(capacity: 4)
         let rot = UnsafeMutableBufferPointer(start: rotPtr, count: 4)
         let intrPtr = UnsafeMutablePointer<Float>.allocate(capacity: 4)
         let intrinsics = UnsafeMutableBufferPointer(start: intrPtr, count: 4)
+        let handlesPtr = UnsafeMutablePointer<Int32>.allocate(capacity: 1)
+        let handles = UnsafeMutableBufferPointer(start: handlesPtr, count: 1)
         let width = Int32(frame.camera.imageResolution.width)
         let height = Int32(frame.camera.imageResolution.height)
         
@@ -151,7 +155,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         guard CVPixelBufferGetPixelFormatType(pixelBuffer) == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange else {
             NSLog("ERROR: capturedImage had an unexpected pixel format.")
-            return localizationInfo
+            return
         }
         
         CVPixelBufferLockBaseAddress(pixelBuffer, .readOnly)
@@ -160,20 +164,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         CVPixelBufferUnlockBaseAddress(pixelBuffer, .readOnly)
         
-        let r = icvLocalize(pos.baseAddress!, rot.baseAddress!, width, height, intrinsics.baseAddress!, rawYBuffer, 0, 12, 0, 2.0)
+        let n: Int32 = 0;
         
-        if (r >= 0) {
-            localizationInfo.mapHandle = r
-            localizationInfo.position = float3(pos[0], pos[1], pos[2])
-            localizationInfo.rotation = float4(rot[0], rot[1], rot[2], rot[3])
+        DispatchQueue.global(qos: .userInitiated).async {
+            let r = icvLocalize(pos.baseAddress!, rot.baseAddress!, n, handles.baseAddress!, width, height, intrinsics.baseAddress!, rawYBuffer, 0, 12, 0, 2.0, 1)
+            
+            if (r >= 0) {
+                localizationInfo.mapHandle = r
+                localizationInfo.position = float3(pos[0], pos[1], pos[2])
+                localizationInfo.rotation = float4(rot[0], rot[1], rot[2], rot[3])
+                print("Localized, map handle: \(r)")
+                print("Pos x: \(pos[0]) y: \(pos[1]) z: \(pos[2])")
+                print("Rot x: \(rot[0]) y: \(rot[1]) z: \(rot[2]) w: \(rot[3])")
+            }
+            
+            completion(localizationInfo)
         }
-        
-        print("Did localize: \(r)")
-        
-        print("Pos x: \(pos[0]) y: \(pos[1]) z: \(pos[2])")
-        print("Rot x: \(rot[0]) y: \(rot[1]) z: \(rot[2]) w: \(rot[3])")
-        
-        return localizationInfo
     }
 
     func pointCloudGeometry(for points:[float3]) -> SCNGeometry? {

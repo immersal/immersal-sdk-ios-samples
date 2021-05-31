@@ -9,13 +9,13 @@
 #include "PosePlugin.h"
 
 extern "C" {
-    struct CaptureInfo icvCaptureImage(void *capture, int captureSizeMax, void *pixels, int width, int height, int channels);
+    struct CaptureInfo icvCaptureImage(void *capture, int captureSizeMax, void *pixels, int width, int height, int channels, int useMatching);
 
     int icvLoadMap(const char *);
     int icvFreeMap(int mapHandle);
 
-    int icvLocalize(float *pos, float *rot, int width, int height, float *intrinsics, void *pixels,
-                   int param1, int param2, float param3, float param4);
+    int icvLocalize(float *pos, float *rot, int n, int *handles, int width, int height, float *intrinsics, void *pixels, int matchingBudget, int minimumMatchCount, float distanceRatio, float motionThreshold, int method);
+    int icvLocalizeExt(float *pos, float *rot, int n, int *handles, int width, int height, float *intrinsics, float *distortion, void *pixels, int matchingBudget, int minimumMatchCount, float distanceRatio, float motionThreshold, int method);
 
     int icvMapToEcefGet(double *mapToEcef, int handle);
     int icvPosMapToEcef(double *ecef, float *map, double *mapToEcef);
