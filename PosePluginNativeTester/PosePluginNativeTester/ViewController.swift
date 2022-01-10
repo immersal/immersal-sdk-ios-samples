@@ -33,6 +33,8 @@ func SCNMatrix4MakeWithQuaternion(q: float4) -> SCNMatrix4 {
 }
 
 class ViewController: UIViewController, ARSCNViewDelegate {
+    let mapName = "41163-Olkkaria"  // sample map, change this to your own and add the .bytes file to the Xcode project
+
     var pointCloudNode: SCNNode?
     var stats = LocalizerStats.init()
     
@@ -50,10 +52,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     let r = SCNMatrix4MakeWithQuaternion(q: locInfo.rotation)
 
                     // fix handedness
+                    // SDK v1.15+
+                    let m = SCNMatrix4(m11:  r.m11, m12:  r.m12, m13:  r.m13, m14: 0.0,
+                                       m21: -r.m21, m22: -r.m22, m23: -r.m23, m24: 0.0,
+                                       m31: -r.m31, m32: -r.m32, m33: -r.m33, m34: 0.0,
+                                       m41:    t.x, m42:    t.y, m43:    t.z, m44: 1.0)
+                    
+                    /* SDK v1.14
                     let m = SCNMatrix4(m11: -r.m21, m12: -r.m22, m13:  r.m23, m14: 0.0,
                                        m21:  r.m11, m22:  r.m12, m23: -r.m13, m24: 0.0,
                                        m31: -r.m31, m32: -r.m32, m33:  r.m33, m34: 0.0,
                                        m41:    t.x, m42:    t.y, m43:   -t.z, m44: 1.0)
+                    */
                             
                     if let pc = self.pointCloudNode {
                         pc.transform = SCNMatrix4Mult(SCNMatrix4Invert(m), SCNMatrix4(frame.camera.transform))
@@ -94,7 +104,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Run the view's session
         sceneView.session.run(configuration)
         
-        if let url = Bundle.main.url(forResource: "7587_Taulu2", withExtension: "bytes") {
+        if let url = Bundle.main.url(forResource: mapName, withExtension: "bytes") {
             do {
                 let data = try Data.init(contentsOf: url)
                 let ptr = UnsafeMutablePointer<Int8>.allocate(capacity: data.count)
@@ -111,7 +121,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     let num = icvPointsGet(mapHandle, points.baseAddress!, Int32(maxNumPoints))
                     var p: [float3] = []
                     for i in stride(from: 0, to: Int(num), by: 3) {
+                        // SDK v1.15+
+                        let point = float3(points[i], points[i+1], points[i+2])
+                        /* SDK v1.14
                         let point = float3(points[i], points[i+1], -points[i+2])
+                        */
                         p.append(point)
                     }
                     print("How many points: \(p.count)")
