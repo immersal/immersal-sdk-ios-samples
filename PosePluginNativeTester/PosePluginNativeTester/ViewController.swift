@@ -33,7 +33,7 @@ func SCNMatrix4MakeWithQuaternion(q: float4) -> SCNMatrix4 {
 }
 
 class ViewController: UIViewController, ARSCNViewDelegate {
-    let mapName = "41163-Olkkaria"  // sample map, change this to your own and add the .bytes file to the Xcode project
+    let mapName = "67461-Taulu"  // sample map, change this to your own and add the .bytes file to the Xcode project
 
     var pointCloudNode: SCNNode?
     var stats = LocalizerStats.init()
@@ -211,11 +211,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                                        dataOffset: 0,
                                        dataStride: stride)
         
-        let pointSize:CGFloat = 10
+        let pointSize:CGFloat = 10;
         let element = SCNGeometryElement(data: nil, primitiveType: .point, primitiveCount: points.count, bytesPerIndex: 0)
-        element.pointSize = 0.001
+        element.pointSize = pointSize;
         element.minimumPointScreenSpaceRadius = pointSize
-        element.maximumPointScreenSpaceRadius = pointSize
+        element.maximumPointScreenSpaceRadius = 20
         
         let pointsGeometry = SCNGeometry(sources: [source], elements: [element])
         
@@ -223,6 +223,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         material.diffuse.contents = UIColor.red
         material.isDoubleSided = true
         material.locksAmbientWithDiffuse = true
+        
+        pointsGeometry.firstMaterial = material;
         
         return pointsGeometry
     }
