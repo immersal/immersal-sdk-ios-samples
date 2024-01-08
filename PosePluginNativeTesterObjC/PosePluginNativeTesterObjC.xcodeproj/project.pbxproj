@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,10 +14,10 @@
 		C0857F1028D2650700F28F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0857F0E28D2650700F28F1D /* LaunchScreen.storyboard */; };
 		C0857F1228D2650700F28F1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0857F1128D2650700F28F1D /* main.m */; };
 		C0857F2228D2709200F28F1D /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0857F2128D2709200F28F1D /* ViewController.mm */; };
+		C08A96B72B4C570A0056CE9F /* 92528-Test.bytes in Resources */ = {isa = PBXBuildFile; fileRef = C08A96B62B4C570A0056CE9F /* 92528-Test.bytes */; };
 		C098460928D271B80093D088 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C098460828D271B80093D088 /* SceneKit.framework */; };
 		C098460B28D271C10093D088 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C098460A28D271C10093D088 /* ARKit.framework */; };
 		C0A1086328D2FFE100208D72 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A1086228D2FFE100208D72 /* GLKit.framework */; };
-		C0ABF50429D5BF6700057CC7 /* 67461-Taulu.bytes in Resources */ = {isa = PBXBuildFile; fileRef = C0ABF50329D5BF6700057CC7 /* 67461-Taulu.bytes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +32,10 @@
 		C0857F1128D2650700F28F1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0857F1828D265D100F28F1D /* PosePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosePlugin.h; sourceTree = "<group>"; };
 		C0857F2128D2709200F28F1D /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		C08A96B62B4C570A0056CE9F /* 92528-Test.bytes */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92528-Test.bytes"; sourceTree = "<group>"; };
 		C098460828D271B80093D088 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		C098460A28D271C10093D088 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		C0A1086228D2FFE100208D72 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		C0ABF50329D5BF6700057CC7 /* 67461-Taulu.bytes */ = {isa = PBXFileReference; lastKnownFileType = file; name = "67461-Taulu.bytes"; path = "PosePluginNativeTesterObjC/67461-Taulu.bytes"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,6 @@
 		C0857EF528D2650600F28F1D = {
 			isa = PBXGroup;
 			children = (
-				C0ABF50329D5BF6700057CC7 /* 67461-Taulu.bytes */,
 				C0857F0028D2650600F28F1D /* PosePluginNativeTesterObjC */,
 				C0857EFF28D2650600F28F1D /* Products */,
 				C098460728D271B80093D088 /* Frameworks */,
@@ -73,6 +72,7 @@
 		C0857F0028D2650600F28F1D /* PosePluginNativeTesterObjC */ = {
 			isa = PBXGroup;
 			children = (
+				C08A96B62B4C570A0056CE9F /* 92528-Test.bytes */,
 				C0857F1828D265D100F28F1D /* PosePlugin.h */,
 				C0857F0128D2650600F28F1D /* AppDelegate.h */,
 				C0857F0228D2650600F28F1D /* AppDelegate.m */,
@@ -155,9 +155,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C08A96B72B4C570A0056CE9F /* 92528-Test.bytes in Resources */,
 				C0857F0528D2650600F28F1D /* art.scnassets in Resources */,
 				C0857F1028D2650700F28F1D /* LaunchScreen.storyboard in Resources */,
-				C0ABF50429D5BF6700057CC7 /* 67461-Taulu.bytes in Resources */,
 				C0857F0D28D2650700F28F1D /* Assets.xcassets in Resources */,
 				C0857F0B28D2650600F28F1D /* Main.storyboard in Resources */,
 			);

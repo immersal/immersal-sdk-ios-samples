@@ -3,6 +3,7 @@
 //  PosePluginNativeTesterObjC
 //
 //  Created by Mikko Karvonen on 14.9.2022.
+//  Copyright (C) 2024 Immersal - Part of Hexagon. All Rights Reserved.
 //
 
 #import "ViewController.h"
@@ -28,18 +29,12 @@ struct rotation_ {
     float w = 0;
 };
 
-struct LocalizationInfo {
-    int mapHandle = -1;
-    point position;
-    rotation_ rotation;
-};
-
 struct LocalizerStats {
     int localizationAttemptCount = 0;
     int localizationSuccessCount = 0;
 };
 
-typedef void (^ResultBlock)(LocalizationInfo);
+typedef void (^ResultBlock)(LocalizeInfo);
 
 @end
 
@@ -67,7 +62,7 @@ typedef void (^ResultBlock)(LocalizationInfo);
     
     // sample map, change this to your own and add the .bytes file to the Xcode project
     
-    mapName = @"67461-Taulu";
+    mapName = @"92528-Test";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,8 +87,7 @@ typedef void (^ResultBlock)(LocalizationInfo);
             std::vector<float> points (3 * maxNumPoints);
             int num = icvPointsGet(mapHandle, &points[0], maxNumPoints);
             
-            for (int i = 0; i < num;)
-            {
+            for (int i = 0; i < num;) {
                 point p;
                 p.x = points[i];
                 p.y = points[i+1];
@@ -126,16 +120,18 @@ typedef void (^ResultBlock)(LocalizationInfo);
     if (frame != NULL) {
         dispatch_queue_t localizationQueue = dispatch_queue_create("com.immersal.LocalizationQueue", NULL);
         dispatch_async(localizationQueue, ^{
-            [self localizeImage:frame withCompletion:^(LocalizationInfo locInfo) {
+            [self localizeImage:frame withCompletion:^(LocalizeInfo locInfo) {
                 self->stats.localizationAttemptCount += 1;
                 
-                if (locInfo.mapHandle >= 0) {
-                    SCNVector3 t = SCNVector3Make(locInfo.position.x, locInfo.position.y, locInfo.position.z);
-                    SCNMatrix4 r = [self makeWithQuaternion:locInfo.rotation];
-                    SCNMatrix4 m = { r.m11, r.m12, r.m13, 0.0,
-                                    -r.m21, -r.m22, -r.m23, 0.0,
-                                    -r.m31, -r.m32, -r.m33, 0.0,
+                if (locInfo.handle >= 0) {
+                    SCNVector3 t = SCNVector3Make(locInfo.px, locInfo.py, locInfo.pz);
+                    SCNMatrix4 m = { locInfo.r00, locInfo.r10, locInfo.r20, 0.0,
+                                    -locInfo.r01, -locInfo.r11, -locInfo.r21, 0.0,
+                                    -locInfo.r02, -locInfo.r12, -locInfo.r22, 0.0,
                                     t.x, t.y, t.z, 1.0 };
+                    
+                    NSLog(@"Localized, map handle: %d", locInfo.handle);
+                    NSLog(@"Pos x: %f y: %f z: %f", t.x, t.y, t.z);
                     
                     if (self->pointCloudNode != NULL) {
                         self->pointCloudNode.transform = SCNMatrix4Mult(SCNMatrix4Invert(m), SCNMatrix4FromMat4(frame.camera.transform));
@@ -159,15 +155,12 @@ typedef void (^ResultBlock)(LocalizationInfo);
         return;
     }
     
-    LocalizationInfo locInfo;
-
     CVPixelBufferLockBaseAddress(pixelBuffer, kCVPixelBufferLock_ReadOnly);
     void *baseAddress = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
     GLsizei imageWidth = (GLsizei)CVPixelBufferGetWidthOfPlane(pixelBuffer, 0);
     GLsizei imageHeight = (GLsizei)CVPixelBufferGetHeightOfPlane(pixelBuffer, 0);
 
-    float pos[3];
-    float rot[4];
+    float rot[1];
     int n = 0;
     int handles[1];
     float intrinsics[4];
@@ -179,22 +172,8 @@ typedef void (^ResultBlock)(LocalizationInfo);
     NSLog(@"Image width: %d", imageWidth);
     NSLog(@"Image height: %d", imageHeight);
     
-    int r = icvLocalize(&pos[0], &rot[0], n, &handles[0], imageWidth, imageHeight, &intrinsics[0], baseAddress, 0, 12, 0, 2.0, 1);
-    
-    if (r >= 0) {
-        locInfo.mapHandle = r;
-        locInfo.position.x = pos[0];
-        locInfo.position.y = pos[1];
-        locInfo.position.z = pos[2];
-        locInfo.rotation.x = rot[0];
-        locInfo.rotation.y = rot[1];
-        locInfo.rotation.z = rot[2];
-        locInfo.rotation.w = rot[3];
-        NSLog(@"Localized, map handle: %d", r);
-        NSLog(@"Pos x: %f y: %f z: %f", pos[0], pos[1], pos[2]);
-        NSLog(@"Rot x: %f y: %f z: %f w: %f", rot[0], rot[2], rot[3], rot[3]);
-    }
-        
+    LocalizeInfo locInfo = icvLocalize(n, &handles[0], imageWidth, imageHeight, &intrinsics[0], baseAddress, 0, &rot[0]);
+            
     CVPixelBufferUnlockBaseAddress(pixelBuffer, kCVPixelBufferLock_ReadOnly);
 
     block(locInfo);

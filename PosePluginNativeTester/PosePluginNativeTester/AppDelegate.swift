@@ -3,7 +3,7 @@
 //  PosePluginNativeTester
 //
 //  Created by Mikko Karvonen on 4.9.2020.
-//  Copyright © 2020 Mikko Karvonen. All rights reserved.
+//  Copyright (C) 2024 Immersal - Part of Hexagon. All Rights Reserved.
 //
 
 import UIKit

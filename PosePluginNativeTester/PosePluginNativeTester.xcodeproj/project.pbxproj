@@ -15,9 +15,8 @@
 		C069EB1C2502D94500693A0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C069EB1A2502D94500693A0A /* LaunchScreen.storyboard */; };
 		C069EB272502D94500693A0A /* PosePluginNativeTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB262502D94500693A0A /* PosePluginNativeTesterTests.swift */; };
 		C069EB322502D94500693A0A /* PosePluginNativeTesterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB312502D94500693A0A /* PosePluginNativeTesterUITests.swift */; };
-		C069EB432502D9A900693A0A /* wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C069EB412502D9A900693A0A /* wrapper.cpp */; };
 		C069EB472502DB0600693A0A /* libPosePlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C069EB462502DB0600693A0A /* libPosePlugin.a */; };
-		C0ABF50629D5EBA900057CC7 /* 67461-Taulu.bytes in Resources */ = {isa = PBXBuildFile; fileRef = C0ABF50529D5EBA900057CC7 /* 67461-Taulu.bytes */; };
+		C08A96B52B4C466F0056CE9F /* 92528-Test.bytes in Resources */ = {isa = PBXBuildFile; fileRef = C08A96B42B4C466F0056CE9F /* 92528-Test.bytes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +53,8 @@
 		C069EB332502D94500693A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C069EB3F2502D9A800693A0A /* PosePluginNativeTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PosePluginNativeTester-Bridging-Header.h"; sourceTree = "<group>"; };
 		C069EB402502D9A800693A0A /* PosePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosePlugin.h; sourceTree = "<group>"; };
-		C069EB412502D9A900693A0A /* wrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wrapper.cpp; sourceTree = "<group>"; };
 		C069EB462502DB0600693A0A /* libPosePlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPosePlugin.a; path = lib/libPosePlugin.a; sourceTree = "<group>"; };
-		C0ABF50529D5EBA900057CC7 /* 67461-Taulu.bytes */ = {isa = PBXFileReference; lastKnownFileType = file; path = "67461-Taulu.bytes"; sourceTree = "<group>"; };
+		C08A96B42B4C466F0056CE9F /* 92528-Test.bytes */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92528-Test.bytes"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +107,9 @@
 		C069EB0E2502D94300693A0A /* PosePluginNativeTester */ = {
 			isa = PBXGroup;
 			children = (
-				C0ABF50529D5EBA900057CC7 /* 67461-Taulu.bytes */,
+				C08A96B42B4C466F0056CE9F /* 92528-Test.bytes */,
 				C069EB402502D9A800693A0A /* PosePlugin.h */,
 				C069EB3F2502D9A800693A0A /* PosePluginNativeTester-Bridging-Header.h */,
-				C069EB412502D9A900693A0A /* wrapper.cpp */,
 				C069EB0F2502D94300693A0A /* AppDelegate.swift */,
 				C069EB112502D94300693A0A /* art.scnassets */,
 				C069EB132502D94300693A0A /* ViewController.swift */,
@@ -255,7 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0ABF50629D5EBA900057CC7 /* 67461-Taulu.bytes in Resources */,
+				C08A96B52B4C466F0056CE9F /* 92528-Test.bytes in Resources */,
 				C069EB122502D94300693A0A /* art.scnassets in Resources */,
 				C069EB1C2502D94500693A0A /* LaunchScreen.storyboard in Resources */,
 				C069EB192502D94500693A0A /* Assets.xcassets in Resources */,
@@ -286,7 +283,6 @@
 			files = (
 				C069EB142502D94300693A0A /* ViewController.swift in Sources */,
 				C069EB102502D94300693A0A /* AppDelegate.swift in Sources */,
-				C069EB432502D9A900693A0A /* wrapper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
