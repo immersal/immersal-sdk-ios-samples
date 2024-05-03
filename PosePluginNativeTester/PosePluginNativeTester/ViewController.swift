@@ -32,12 +32,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 self.stats.localizationAttemptCount += 1
                 
                 if locInfo.handle >= 0 {
-                    let t = SCNVector3Make(locInfo.px, locInfo.py, locInfo.pz)
-                    let m = SCNMatrix4(m11:  locInfo.r00, m12:  locInfo.r10, m13:  locInfo.r20, m14: 0.0,
-                                       m21: -locInfo.r01, m22: -locInfo.r11, m23: -locInfo.r21, m24: 0.0,
-                                       m31: -locInfo.r02, m32: -locInfo.r12, m33: -locInfo.r22, m34: 0.0,
-                                       m41:    t.x, m42:    t.y, m43:    t.z, m44: 1.0)
-                            
+                    let t = SCNVector3Make(locInfo.position.x, locInfo.position.y, locInfo.position.z)
+                    let q = simd_quaternion(locInfo.rotation.x, locInfo.rotation.y, locInfo.rotation.z, locInfo.rotation.w)
+                    let r = SCNMatrix4.init(simd_matrix4x4(q))
+                    let m = SCNMatrix4(m11:  r.m11, m12:  r.m12, m13:  r.m13, m14: r.m14,
+                                       m21: -r.m21, m22: -r.m22, m23: -r.m23, m24: r.m24,
+                                       m31: -r.m31, m32: -r.m32, m33: -r.m33, m34: r.m34,
+                                       m41:    t.x, m42:    t.y, m43:    t.z, m44: r.m44)
+                    
                     print("Localized, map handle: \(locInfo.handle)")
                     print("Pos x: \(t.x) y: \(t.y) z: \(t.z)")
                     
@@ -127,6 +129,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let handles = UnsafeMutableBufferPointer(start: handlesPtr, count: 1)
         let width = Int32(frame.camera.imageResolution.width)
         let height = Int32(frame.camera.imageResolution.height)
+        let channels = Int32(1)
+        let solverType = Int32(0)
         
         var localizeInfo = LocalizeInfo.init()
         
@@ -151,7 +155,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let n: Int32 = 0;
         
         DispatchQueue.global(qos: .userInitiated).async {
-            localizeInfo = icvLocalize(n, handles.baseAddress!, width, height, intrinsics.baseAddress!, rawYBuffer, 0, rot.baseAddress!)
+            localizeInfo = icvLocalize(n, handles.baseAddress!, width, height, intrinsics.baseAddress!, rawYBuffer, channels, solverType, rot.baseAddress!)
             
             completion(localizeInfo)
         }

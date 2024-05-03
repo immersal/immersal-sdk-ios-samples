@@ -4,15 +4,28 @@
 
 typedef void (*LOGCALLBACK)(const char* msg);
 
+struct PPVector3 {
+    float x;
+    float y;
+    float z;
+};
+
+struct PPQuaternion {
+    float x;
+    float y;
+    float z;
+    float w;
+};
+
 struct CaptureInfo {
-	int captureSize;
-	int connected;
+    int captureSize;
+    int connected;
 };
 
 struct LocalizeInfo {
     int handle;
-    float px, py, pz;
-    float r00, r01, r02, r10, r11, r12, r20, r21, r22;
+    struct PPVector3 position;
+    struct PPQuaternion rotation;
     int confidence;
 };
 
@@ -31,10 +44,8 @@ extern "C" {
 
     int icvLoadMap(const char *);
     int icvFreeMap(int mapHandle);
-
-    struct LocalizeInfo icvLocalize(int n, int *handles, int width, int height, float *intrinsics, void *pixels, int solverType, float *rot);
-    struct LocalizeInfo icvLocalizeExt(int n, int *handles, int width, int height, float *intrinsics, float *distortion, void *pixels);
-
+    struct LocalizeInfo icvLocalize(int n, int *handles, int width, int height, float *intrinsics, void *pixels, int channels, int solverType, float *rot);
+    struct LocalizeInfo icvLocalizeExt(int n, int *handles, int width, int height, float *intrinsics, float *distortion, void *pixels, int channels);
     int icvMapToEcefGet(double *mapToEcef, int handle);
     int icvPosMapToEcef(double *ecef, float *map, double *mapToEcef);
     int icvPosEcefToWgs84(double *wgs84, double *ecef);
@@ -49,7 +60,7 @@ extern "C" {
     int icvGetInteger(const char* param);
     int icvSetInteger(const char* param, int value);
     int icvValidateUser(const char* token);
-
+    
     void PP_RegisterLogCallback(LOGCALLBACK callback);
 #ifdef __cplusplus
 }

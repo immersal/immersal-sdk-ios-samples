@@ -124,11 +124,13 @@ typedef void (^ResultBlock)(LocalizeInfo);
                 self->stats.localizationAttemptCount += 1;
                 
                 if (locInfo.handle >= 0) {
-                    SCNVector3 t = SCNVector3Make(locInfo.px, locInfo.py, locInfo.pz);
-                    SCNMatrix4 m = { locInfo.r00, locInfo.r10, locInfo.r20, 0.0,
-                                    -locInfo.r01, -locInfo.r11, -locInfo.r21, 0.0,
-                                    -locInfo.r02, -locInfo.r12, -locInfo.r22, 0.0,
-                                    t.x, t.y, t.z, 1.0 };
+                    SCNVector3 t = SCNVector3Make(locInfo.position.x, locInfo.position.y, locInfo.position.z);
+                    simd_quatf q = simd_quaternion(locInfo.rotation.x, locInfo.rotation.y, locInfo.rotation.z, locInfo.rotation.w);
+                    SCNMatrix4 r = SCNMatrix4FromMat4(simd_matrix4x4(q));
+                    SCNMatrix4 m = { r.m11, r.m12, r.m13, r.m14,
+                                    -r.m21, -r.m22, -r.m23, r.m24,
+                                    -r.m31, -r.m32, -r.m33, r.m34,
+                                    t.x, t.y, t.z, r.m44 };
                     
                     NSLog(@"Localized, map handle: %d", locInfo.handle);
                     NSLog(@"Pos x: %f y: %f z: %f", t.x, t.y, t.z);
@@ -159,10 +161,12 @@ typedef void (^ResultBlock)(LocalizeInfo);
     void *baseAddress = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
     GLsizei imageWidth = (GLsizei)CVPixelBufferGetWidthOfPlane(pixelBuffer, 0);
     GLsizei imageHeight = (GLsizei)CVPixelBufferGetHeightOfPlane(pixelBuffer, 0);
-
+    
     float rot[1];
+    int solverType = 0;
     int n = 0;
     int handles[1];
+    int channels = 1;
     float intrinsics[4];
     intrinsics[0] = frame.camera.intrinsics.columns[0].x;   // fx
     intrinsics[1] = frame.camera.intrinsics.columns[1].y;   // fy
@@ -172,7 +176,7 @@ typedef void (^ResultBlock)(LocalizeInfo);
     NSLog(@"Image width: %d", imageWidth);
     NSLog(@"Image height: %d", imageHeight);
     
-    LocalizeInfo locInfo = icvLocalize(n, &handles[0], imageWidth, imageHeight, &intrinsics[0], baseAddress, 0, &rot[0]);
+    LocalizeInfo locInfo = icvLocalize(n, &handles[0], imageWidth, imageHeight, &intrinsics[0], baseAddress, channels, solverType, &rot[0]);
             
     CVPixelBufferUnlockBaseAddress(pixelBuffer, kCVPixelBufferLock_ReadOnly);
 
