@@ -19,8 +19,8 @@ struct LocalizerStats
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     let mapName = "100879-InsideMapTest"  // sample map, change this to your own and add the .bytes file to the Xcode project
-    let mapID = 100879
-    let token = "442d8896aa5a519f495592b173c65866c2ea9e4367d8c9dbdf2c52ed57132e66"
+    let mapID = 100879	// change this to your map ID
+    let token = "IMMERSAL_DEVELOPER_TOKEN"	// change this to your dev token
 
     var pointCloudNode: SCNNode?
     var mapHandle: Int32 = -1
