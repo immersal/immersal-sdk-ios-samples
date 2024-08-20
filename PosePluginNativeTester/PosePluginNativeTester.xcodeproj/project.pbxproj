@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,12 +17,6 @@
 		C069EB272502D94500693A0A /* PosePluginNativeTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB262502D94500693A0A /* PosePluginNativeTesterTests.swift */; };
 		C069EB322502D94500693A0A /* PosePluginNativeTesterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB312502D94500693A0A /* PosePluginNativeTesterUITests.swift */; };
 		C069EB472502DB0600693A0A /* libPosePlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C069EB462502DB0600693A0A /* libPosePlugin.a */; };
-		C0C80CBA2C6A24BC005C933D /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = C0C80CB92C6A24BC005C933D /* RealityKitContent */; };
-		C0C80CBC2C6A24BC005C933D /* PosePluginAVPTesterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C80CBB2C6A24BC005C933D /* PosePluginAVPTesterApp.swift */; };
-		C0C80CBE2C6A24BC005C933D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C80CBD2C6A24BC005C933D /* ContentView.swift */; };
-		C0C80CC02C6A24BC005C933D /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C80CBF2C6A24BC005C933D /* ImmersiveView.swift */; };
-		C0C80CC22C6A24BD005C933D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C80CC12C6A24BD005C933D /* Assets.xcassets */; };
-		C0C80CC52C6A24BD005C933D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C80CC42C6A24BD005C933D /* Preview Assets.xcassets */; };
 		C0C80CCA2C6A2535005C933D /* libPosePlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C069EB462502DB0600693A0A /* libPosePlugin.a */; };
 /* End PBXBuildFile section */
 
@@ -63,13 +57,6 @@
 		C069EB402502D9A800693A0A /* PosePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosePlugin.h; sourceTree = "<group>"; };
 		C069EB462502DB0600693A0A /* libPosePlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPosePlugin.a; path = lib/libPosePlugin.a; sourceTree = "<group>"; };
 		C0C80CB52C6A24BB005C933D /* PosePluginAVPTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PosePluginAVPTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0C80CB82C6A24BC005C933D /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
-		C0C80CBB2C6A24BC005C933D /* PosePluginAVPTesterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosePluginAVPTesterApp.swift; sourceTree = "<group>"; };
-		C0C80CBD2C6A24BC005C933D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C0C80CBF2C6A24BC005C933D /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
-		C0C80CC12C6A24BD005C933D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C0C80CC42C6A24BD005C933D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C0C80CC62C6A24BD005C933D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +87,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C80CCA2C6A2535005C933D /* libPosePlugin.a in Frameworks */,
-				C0C80CBA2C6A24BC005C933D /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +99,6 @@
 				C069EB0E2502D94300693A0A /* PosePluginNativeTester */,
 				C069EB252502D94500693A0A /* PosePluginNativeTesterTests */,
 				C069EB302502D94500693A0A /* PosePluginNativeTesterUITests */,
-				C0C80CB62C6A24BB005C933D /* PosePluginAVPTester */,
 				C0C80CB72C6A24BC005C933D /* Packages */,
 				C069EB0D2502D94300693A0A /* Products */,
 				C069EB452502DB0600693A0A /* Frameworks */,
@@ -174,33 +159,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C0C80CB62C6A24BB005C933D /* PosePluginAVPTester */ = {
-			isa = PBXGroup;
-			children = (
-				C0C80CBB2C6A24BC005C933D /* PosePluginAVPTesterApp.swift */,
-				C0C80CBD2C6A24BC005C933D /* ContentView.swift */,
-				C0C80CBF2C6A24BC005C933D /* ImmersiveView.swift */,
-				C0C80CC12C6A24BD005C933D /* Assets.xcassets */,
-				C0C80CC62C6A24BD005C933D /* Info.plist */,
-				C0C80CC32C6A24BD005C933D /* Preview Content */,
-			);
-			path = PosePluginAVPTester;
-			sourceTree = "<group>";
-		};
 		C0C80CB72C6A24BC005C933D /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				C0C80CB82C6A24BC005C933D /* RealityKitContent */,
 			);
 			path = Packages;
-			sourceTree = "<group>";
-		};
-		C0C80CC32C6A24BD005C933D /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				C0C80CC42C6A24BD005C933D /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +236,6 @@
 			);
 			name = PosePluginAVPTester;
 			packageProductDependencies = (
-				C0C80CB92C6A24BC005C933D /* RealityKitContent */,
 			);
 			productName = PosePluginAVPTester;
 			productReference = C0C80CB52C6A24BB005C933D /* PosePluginAVPTester.app */;
@@ -358,8 +320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C80CC52C6A24BD005C933D /* Preview Assets.xcassets in Resources */,
-				C0C80CC22C6A24BD005C933D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,9 +355,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C80CBE2C6A24BC005C933D /* ContentView.swift in Sources */,
-				C0C80CBC2C6A24BC005C933D /* PosePluginAVPTesterApp.swift in Sources */,
-				C0C80CC02C6A24BC005C933D /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,13 +766,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C0C80CB92C6A24BC005C933D /* RealityKitContent */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RealityKitContent;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C069EB042502D94300693A0A /* Project object */;
 }
