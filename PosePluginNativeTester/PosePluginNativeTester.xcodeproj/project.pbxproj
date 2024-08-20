@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C066F1152BFCA0FD00C88BF1 /* 100879-InsideMapTest.bytes in Resources */ = {isa = PBXBuildFile; fileRef = C066F1142BFCA0FD00C88BF1 /* 100879-InsideMapTest.bytes */; };
 		C069EB102502D94300693A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB0F2502D94300693A0A /* AppDelegate.swift */; };
 		C069EB122502D94300693A0A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C069EB112502D94300693A0A /* art.scnassets */; };
 		C069EB142502D94300693A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB132502D94300693A0A /* ViewController.swift */; };
@@ -16,7 +17,13 @@
 		C069EB272502D94500693A0A /* PosePluginNativeTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB262502D94500693A0A /* PosePluginNativeTesterTests.swift */; };
 		C069EB322502D94500693A0A /* PosePluginNativeTesterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C069EB312502D94500693A0A /* PosePluginNativeTesterUITests.swift */; };
 		C069EB472502DB0600693A0A /* libPosePlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C069EB462502DB0600693A0A /* libPosePlugin.a */; };
-		C08A96B52B4C466F0056CE9F /* 92528-Test.bytes in Resources */ = {isa = PBXBuildFile; fileRef = C08A96B42B4C466F0056CE9F /* 92528-Test.bytes */; };
+		C0C80CBA2C6A24BC005C933D /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = C0C80CB92C6A24BC005C933D /* RealityKitContent */; };
+		C0C80CBC2C6A24BC005C933D /* PosePluginAVPTesterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C80CBB2C6A24BC005C933D /* PosePluginAVPTesterApp.swift */; };
+		C0C80CBE2C6A24BC005C933D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C80CBD2C6A24BC005C933D /* ContentView.swift */; };
+		C0C80CC02C6A24BC005C933D /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C80CBF2C6A24BC005C933D /* ImmersiveView.swift */; };
+		C0C80CC22C6A24BD005C933D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C80CC12C6A24BD005C933D /* Assets.xcassets */; };
+		C0C80CC52C6A24BD005C933D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C80CC42C6A24BD005C933D /* Preview Assets.xcassets */; };
+		C0C80CCA2C6A2535005C933D /* libPosePlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C069EB462502DB0600693A0A /* libPosePlugin.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C066F1142BFCA0FD00C88BF1 /* 100879-InsideMapTest.bytes */ = {isa = PBXFileReference; lastKnownFileType = file; path = "100879-InsideMapTest.bytes"; sourceTree = "<group>"; };
 		C069EB0C2502D94300693A0A /* PosePluginNativeTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PosePluginNativeTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C069EB0F2502D94300693A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C069EB112502D94300693A0A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -54,7 +62,14 @@
 		C069EB3F2502D9A800693A0A /* PosePluginNativeTester-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PosePluginNativeTester-Bridging-Header.h"; sourceTree = "<group>"; };
 		C069EB402502D9A800693A0A /* PosePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosePlugin.h; sourceTree = "<group>"; };
 		C069EB462502DB0600693A0A /* libPosePlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPosePlugin.a; path = lib/libPosePlugin.a; sourceTree = "<group>"; };
-		C08A96B42B4C466F0056CE9F /* 92528-Test.bytes */ = {isa = PBXFileReference; lastKnownFileType = file; path = "92528-Test.bytes"; sourceTree = "<group>"; };
+		C0C80CB52C6A24BB005C933D /* PosePluginAVPTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PosePluginAVPTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0C80CB82C6A24BC005C933D /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		C0C80CBB2C6A24BC005C933D /* PosePluginAVPTesterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosePluginAVPTesterApp.swift; sourceTree = "<group>"; };
+		C0C80CBD2C6A24BC005C933D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C0C80CBF2C6A24BC005C933D /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		C0C80CC12C6A24BD005C933D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0C80CC42C6A24BD005C933D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C0C80CC62C6A24BD005C933D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +95,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0C80CB22C6A24BB005C933D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0C80CCA2C6A2535005C933D /* libPosePlugin.a in Frameworks */,
+				C0C80CBA2C6A24BC005C933D /* RealityKitContent in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,6 +113,8 @@
 				C069EB0E2502D94300693A0A /* PosePluginNativeTester */,
 				C069EB252502D94500693A0A /* PosePluginNativeTesterTests */,
 				C069EB302502D94500693A0A /* PosePluginNativeTesterUITests */,
+				C0C80CB62C6A24BB005C933D /* PosePluginAVPTester */,
+				C0C80CB72C6A24BC005C933D /* Packages */,
 				C069EB0D2502D94300693A0A /* Products */,
 				C069EB452502DB0600693A0A /* Frameworks */,
 			);
@@ -100,6 +126,7 @@
 				C069EB0C2502D94300693A0A /* PosePluginNativeTester.app */,
 				C069EB222502D94500693A0A /* PosePluginNativeTesterTests.xctest */,
 				C069EB2D2502D94500693A0A /* PosePluginNativeTesterUITests.xctest */,
+				C0C80CB52C6A24BB005C933D /* PosePluginAVPTester.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +134,7 @@
 		C069EB0E2502D94300693A0A /* PosePluginNativeTester */ = {
 			isa = PBXGroup;
 			children = (
-				C08A96B42B4C466F0056CE9F /* 92528-Test.bytes */,
+				C066F1142BFCA0FD00C88BF1 /* 100879-InsideMapTest.bytes */,
 				C069EB402502D9A800693A0A /* PosePlugin.h */,
 				C069EB3F2502D9A800693A0A /* PosePluginNativeTester-Bridging-Header.h */,
 				C069EB0F2502D94300693A0A /* AppDelegate.swift */,
@@ -145,6 +172,35 @@
 				C069EB462502DB0600693A0A /* libPosePlugin.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0C80CB62C6A24BB005C933D /* PosePluginAVPTester */ = {
+			isa = PBXGroup;
+			children = (
+				C0C80CBB2C6A24BC005C933D /* PosePluginAVPTesterApp.swift */,
+				C0C80CBD2C6A24BC005C933D /* ContentView.swift */,
+				C0C80CBF2C6A24BC005C933D /* ImmersiveView.swift */,
+				C0C80CC12C6A24BD005C933D /* Assets.xcassets */,
+				C0C80CC62C6A24BD005C933D /* Info.plist */,
+				C0C80CC32C6A24BD005C933D /* Preview Content */,
+			);
+			path = PosePluginAVPTester;
+			sourceTree = "<group>";
+		};
+		C0C80CB72C6A24BC005C933D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				C0C80CB82C6A24BC005C933D /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		C0C80CC32C6A24BD005C933D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C0C80CC42C6A24BD005C933D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,13 +259,33 @@
 			productReference = C069EB2D2502D94500693A0A /* PosePluginNativeTesterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C0C80CB42C6A24BB005C933D /* PosePluginAVPTester */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0C80CC92C6A24BD005C933D /* Build configuration list for PBXNativeTarget "PosePluginAVPTester" */;
+			buildPhases = (
+				C0C80CB12C6A24BB005C933D /* Sources */,
+				C0C80CB22C6A24BB005C933D /* Frameworks */,
+				C0C80CB32C6A24BB005C933D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PosePluginAVPTester;
+			packageProductDependencies = (
+				C0C80CB92C6A24BC005C933D /* RealityKitContent */,
+			);
+			productName = PosePluginAVPTester;
+			productReference = C0C80CB52C6A24BB005C933D /* PosePluginAVPTester.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C069EB042502D94300693A0A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1170;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = "Mikko Karvonen";
 				TargetAttributes = {
@@ -224,6 +300,9 @@
 					C069EB2C2502D94500693A0A = {
 						CreatedOnToolsVersion = 11.7;
 						TestTargetID = C069EB0B2502D94300693A0A;
+					};
+					C0C80CB42C6A24BB005C933D = {
+						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
@@ -243,6 +322,7 @@
 				C069EB0B2502D94300693A0A /* PosePluginNativeTester */,
 				C069EB212502D94500693A0A /* PosePluginNativeTesterTests */,
 				C069EB2C2502D94500693A0A /* PosePluginNativeTesterUITests */,
+				C0C80CB42C6A24BB005C933D /* PosePluginAVPTester */,
 			);
 		};
 /* End PBXProject section */
@@ -252,11 +332,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C08A96B52B4C466F0056CE9F /* 92528-Test.bytes in Resources */,
 				C069EB122502D94300693A0A /* art.scnassets in Resources */,
 				C069EB1C2502D94500693A0A /* LaunchScreen.storyboard in Resources */,
 				C069EB192502D94500693A0A /* Assets.xcassets in Resources */,
 				C069EB172502D94300693A0A /* Main.storyboard in Resources */,
+				C066F1152BFCA0FD00C88BF1 /* 100879-InsideMapTest.bytes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +351,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0C80CB32C6A24BB005C933D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0C80CC52C6A24BD005C933D /* Preview Assets.xcassets in Resources */,
+				C0C80CC22C6A24BD005C933D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +388,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C069EB322502D94500693A0A /* PosePluginNativeTesterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0C80CB12C6A24BB005C933D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0C80CBE2C6A24BC005C933D /* ContentView.swift in Sources */,
+				C0C80CBC2C6A24BC005C933D /* PosePluginAVPTesterApp.swift in Sources */,
+				C0C80CC02C6A24BC005C933D /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +683,83 @@
 			};
 			name = Release;
 		};
+		C0C80CC72C6A24BD005C933D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PosePluginAVPTester/Preview Content\"";
+				DEVELOPMENT_TEAM = 2H7A762SS7;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.immersal.PosePluginAVPTester;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.2;
+			};
+			name = Debug;
+		};
+		C0C80CC82C6A24BD005C933D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PosePluginAVPTester/Preview Content\"";
+				DEVELOPMENT_TEAM = 2H7A762SS7;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.immersal.PosePluginAVPTester;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 1.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -623,7 +799,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C0C80CC92C6A24BD005C933D /* Build configuration list for PBXNativeTarget "PosePluginAVPTester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0C80CC72C6A24BD005C933D /* Debug */,
+				C0C80CC82C6A24BD005C933D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C0C80CB92C6A24BC005C933D /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C069EB042502D94300693A0A /* Project object */;
 }
